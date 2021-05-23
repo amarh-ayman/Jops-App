@@ -1,0 +1,17 @@
+<%- include('./layouts/head')%>
+
+  <% data.forEach(item=>{%>
+
+    <h3>
+      <%= item.tilte%>
+    </h3>
+    <h2>
+      <%= item.comapany%>
+    </h2>
+    <p>
+      <%= item.location%>
+    </p>
+    <p>
+      <%= item.url%>
+    </p>
+    <%});%>
