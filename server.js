@@ -11,14 +11,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static('./public'));
 app.set('view engine', 'ejs');
-const client = new pg.Client(process.env.DATABASE_URL);
 app.use(express.urlencoded({ extended: true }));
 
 const PORT = process.env.PORT || 3040;
-// const client = new pg.Client({
-//   connectionString: process.env.DATABASE_URL,
-// ssl: { rejectUnauthorized: false }
-// });
+const client = new pg.Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false },
+});
+// const client = new pg.Client(process.env.DATABASE_URL);
+
 // const client = new pg.Client( { connectionString: process.env.DATABASE_URL, ssl: process.env.LOCALLY ? false : {rejectUnauthorized: false}} );
 
 client.connect().then(
