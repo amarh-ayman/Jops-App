@@ -1,0 +1,47 @@
+<%- include('./layouts/head')%>
+  <%- include('./layouts/header')%>
+
+    <style>
+      .all_list {
+        width: 80%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .all_list div {
+        /* width: 50%; */
+        border: 2px solid gray;
+      }
+    </style>
+
+    <div class="all_list">
+      <%if(data.length===0){%>
+        <h1>No Jobs in Your List</h1>
+        <%} else {%>
+          <% data.forEach(item=>{%>
+            <div>
+              <h3>
+                <%= item.title%>
+              </h3>
+              <h2>
+                <%= item.comapany%>
+              </h2>
+              <p>
+                <%= item.location%>
+              </p>
+              <p>
+                <%= item.url%>
+              </p>
+
+              <form action="/mylist/<%= item.id%>">
+
+                <button>View-Details</button>
+
+              </form>
+            </div>
+
+            <%});%>
+              <%}%>
+    </div>

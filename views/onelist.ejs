@@ -1,0 +1,45 @@
+<%- include('./layouts/head')%>
+  <%- include('./layouts/header')%>
+
+    <style>
+      .onelist {
+        width: 50%;
+        margin: 50px auto;
+      }
+
+      .onelist form * {
+        width: 50%;
+        margin: 10px;
+        height: 50px;
+      }
+    </style>
+
+    <div class="onelist">
+      <% data.forEach(item=>{%>
+
+        <h3>
+          <%= item.title%>
+        </h3>
+        <h2>
+          <%= item.comapany%>
+        </h2>
+        <p>
+          <%= item.location%>
+        </p>
+        <p>
+          <%= item.url%>
+        </p>
+        <form action="/mylist/<%= item.id%>?_method=put" method="POST">
+          <input type="text" name="title" value="<%= item.title%>"><br>
+          <input type="text" name="comapany" value="<%= item.comapany%>"><br>
+          <input type="text" name="location" value="<%= item.location%>"><br>
+          <input type="text" name="url" value="<%= item.url%>"><br>
+          <button>update</button><br>
+        </form>
+        <form action="/mylist/<%= item.id%>?_method=delete" method="POST">
+          <button>
+            delete
+          </button>
+          <form>
+            <%});%>
+    </div>

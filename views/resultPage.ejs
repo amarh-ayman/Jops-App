@@ -1,22 +1,22 @@
 <%- include('./layouts/head')%>
   <%- include('./layouts/header')%>
 
-
     <style>
-      .home__con {
+      .result {
         width: 80%;
         margin: 0 auto;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
       }
 
-      .home__con div {
+      .result div {
         /* width: 50%; */
         border: 2px solid gray;
       }
     </style>
-    <div class="home__con">
+    <div class="result">
+
       <% data.forEach(item=>{%>
         <div>
           <h3>
@@ -31,7 +31,16 @@
           <p>
             <%= item.url%>
           </p>
+          <form action="/mylistt" method="POST">
+            <input type="hidden" name="title" value="<%= item.title%>">
+            <input type="hidden" name="comapany" value="<%= item.comapany%>">
+            <input type="hidden" name="location" value="<%= item.location%>">
+            <input type="hidden" name="url" value="<%= item.url%>">
+            <button>add to my list</button>
+
+          </form>
         </div>
 
         <%});%>
+
     </div>

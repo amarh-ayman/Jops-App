@@ -1,0 +1,26 @@
+<%- include('./layouts/head')%>
+  <%- include('./layouts/header')%>
+
+    <style>
+      .search {
+        width: 50%;
+        margin: 50px auto;
+      }
+
+      .search form * {
+        width: 50%;
+        height: 30px;
+        margin-top: 10px;
+        font-size: 20px;
+        text-align: center;
+      }
+    </style>
+    <div class="search">
+      <form action="/search" method="POST">
+        <label>search</label><br>
+        <input type="text" name='description'><br>
+        <button>
+          serach
+        </button>
+      </form>
+    </div>
